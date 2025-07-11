@@ -61,7 +61,23 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Dragon Buddy brand colors
+				dragon: {
+					primary: 'hsl(var(--dragon-primary))',
+					'primary-dark': 'hsl(var(--dragon-primary-dark))',
+					'primary-light': 'hsl(var(--dragon-primary-light))',
+					secondary: 'hsl(var(--dragon-secondary))',
+					'secondary-dark': 'hsl(var(--dragon-secondary-dark))',
+					'secondary-light': 'hsl(var(--dragon-secondary-light))'
+				},
+				neutral: {
+					50: 'hsl(var(--neutral-50))',
+					600: 'hsl(var(--neutral-600))'
 				}
+			},
+			fontFamily: {
+				inter: ['Inter', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -88,7 +104,10 @@ export default {
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'dragon-float': 'dragonFloat 3s ease-in-out infinite',
+				'dragon-pulse': 'dragonPulse 2s ease-in-out infinite',
+				'dragon-bounce': 'dragonBounce 0.6s ease-in-out'
 			}
 		}
 	},
