@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { LocationDetector } from '@/components/LocationDetector';
 import { PlaceCategories } from '@/components/PlaceCategories';
 import { PlacesList } from '@/components/PlacesList';
-import { DragonBuddy } from '@/components/DragonBuddy';
+import { Button } from '@/components/ui/button';
+import { MessageCircle } from 'lucide-react';
+import { Link } from 'wouter';
 import travelBuddyKoala from '@/assets/travel-buddy-icon.png';
 
 const Index = () => {
@@ -34,6 +36,12 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground">AI-Powered Location Discovery</p>
               </div>
             </div>
+            <Link href="/chat">
+              <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Chat with Travel Buddy
+              </Button>
+            </Link>
           </div>
         </div>
       </header>
@@ -85,13 +93,15 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Travel Buddy Chat */}
-      <DragonBuddy
-        userLocation={userLocation}
-        onLocationRequest={() => {
-          // Could trigger location detection
-        }}
-      />
+      {/* Floating Chat Button */}
+      <Link href="/chat">
+        <Button 
+          size="lg"
+          className="fixed bottom-6 right-6 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full w-16 h-16 p-0 z-50"
+        >
+          <MessageCircle className="w-6 h-6" />
+        </Button>
+      </Link>
     </div>
   );
 };
