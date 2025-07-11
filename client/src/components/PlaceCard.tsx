@@ -1,4 +1,4 @@
-import { Star, MapPin, Clock, DollarSign } from 'lucide-react';
+import { Star, MapPin, Clock, DollarSign, ExternalLink } from 'lucide-react';
 
 interface Place {
   name: string;
@@ -19,10 +19,19 @@ interface PlaceCardProps {
 }
 
 export function PlaceCard({ place, onClick }: PlaceCardProps) {
+  const handleCardClick = () => {
+    // Open Google Maps with the place address
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}`;
+    window.open(googleMapsUrl, '_blank');
+    
+    // Also trigger the original onClick for logging/tracking
+    onClick(place);
+  };
+
   return (
     <div 
       className="dragon-card p-0 overflow-hidden cursor-pointer group"
-      onClick={() => onClick(place)}
+      onClick={handleCardClick}
     >
       {/* Image */}
       <div className="relative h-48 bg-gradient-to-br from-dragon-primary-light to-dragon-secondary-light">
@@ -48,6 +57,13 @@ export function PlaceCard({ place, onClick }: PlaceCardProps) {
           `}>
             {place.openNow ? 'Open' : 'Closed'}
           </span>
+        </div>
+
+        {/* Google Maps indicator */}
+        <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-md">
+            <ExternalLink size={16} className="text-primary" />
+          </div>
         </div>
       </div>
 

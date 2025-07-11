@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a modern full-stack web application that helps users discover places like hotels, restaurants, and landmarks using AI-powered recommendations. The app features a React frontend with a Node.js/Express backend, using PostgreSQL for data storage and Drizzle ORM for database operations.
+This is a modern full-stack web application that helps users discover places like hotels, restaurants, and landmarks using Gemini AI-powered recommendations. The app features a React frontend with a Node.js/Express backend, using PostgreSQL for data storage and Drizzle ORM for database operations. Place cards are clickable and open directly in Google Maps for navigation.
 
 ## User Preferences
 
@@ -44,6 +44,12 @@ Preferred communication style: Simple, everyday language.
 
 ## Key Components
 
+### AI Integration
+- **Gemini AI**: Google's Gemini 2.5 Flash model for intelligent place search
+- **Real-time Chat**: Dragon Buddy powered by Gemini AI for travel assistance
+- **Smart Recommendations**: AI-filtered hotels, restaurants, and landmarks
+- **Web Search**: Gemini uses web search capabilities to find current, accurate place data
+
 ### Database Layer
 - **ORM**: Drizzle ORM with PostgreSQL dialect
 - **Connection**: Neon Database serverless connection
@@ -54,6 +60,7 @@ Preferred communication style: Simple, everyday language.
 - **Location Detection**: Browser geolocation API integration
 - **Place Categories**: Hotel, restaurant, and landmark browsing
 - **AI Chat Interface**: Interactive travel assistant (Dragon Buddy)
+- **Google Maps Integration**: Click-to-open place cards in Google Maps
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 
 ### Storage Interface

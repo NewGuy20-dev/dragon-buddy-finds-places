@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Filter, Sparkles } from 'lucide-react';
+import { Search, Filter, Sparkles, MapPin } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { PlaceCard } from './PlaceCard';
 
@@ -128,6 +128,16 @@ export function PlacesList({ category, location }: PlacesListProps) {
           <p className="text-muted-foreground text-sm">
             Try adjusting your search or ask Travel Buddy for help!
           </p>
+        </div>
+      )}
+
+      {/* Click to open in Maps hint */}
+      {filteredPlaces.length > 0 && (
+        <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+          <div className="flex items-center gap-2 text-sm text-blue-700 dark:text-blue-300">
+            <MapPin size={16} />
+            <span>Click any place card to open it in Google Maps</span>
+          </div>
         </div>
       )}
 
