@@ -30,19 +30,17 @@ export async function searchPlacesWithAI(
       ? `${category} in ${location} ${userQuery}` 
       : `best ${category} in ${location}`;
 
-    const prompt = `Search for ${searchQuery} and provide detailed information about the top 6 results. 
+    const prompt = `Use web search to find current, real ${searchQuery}. I need authentic, up-to-date information about actual places that exist in ${location}.
     
-    For each place, provide:
-    - Name
-    - Category (hotels, restaurants, or landmarks)
-    - Rating (1-5 stars)
-    - Approximate distance from city center
-    - Price range ($ to $$$$)
-    - Brief description
-    - Whether it's currently open
-    - Address
-    - Phone number (if available)
-    - Website (if available)
+    Search the web for the top 6 real ${category} in ${location} and provide:
+    - Actual business names (not generic names)
+    - Verified addresses that exist
+    - Real ratings from review sites
+    - Current operating hours and status
+    - Accurate pricing information
+    - Authentic descriptions from their websites or reviews
+    
+    IMPORTANT: Only include places that actually exist and are currently operating. Use current web search results to verify all information.
     
     Format the response as a JSON array of objects with these exact fields:
     {
@@ -103,17 +101,25 @@ export async function chatWithTravelBuddy(
   try {
     const systemPrompt = `You are Travel Buddy, a friendly AI travel assistant with the personality of a wise, adventurous koala. You help users discover amazing places to visit.
 
+    IMPORTANT: Use web search to find current, real information about places and travel recommendations. Only provide information about places that actually exist and are currently operating.
+
     Your personality:
     - Friendly and enthusiastic about travel
-    - Knowledgeable about different locations
-    - Helpful in providing travel recommendations
+    - Knowledgeable about different locations using current web search
+    - Helpful in providing travel recommendations with verified information
     - Use emojis occasionally but don't overdo it
     - Keep responses conversational and engaging
 
     Current user location: ${userLocation || "Not specified"}
     Context: ${context || "General travel chat"}
 
-    Respond naturally to the user's message. If they ask about places to visit, hotels, restaurants, or landmarks, provide helpful information and suggestions.`;
+    When recommending places, always verify through web search that they:
+    - Actually exist with real addresses
+    - Are currently operating
+    - Have authentic reviews and ratings
+    - Provide accurate contact information and hours
+
+    Respond naturally to the user's message with verified, current information.`;
 
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",

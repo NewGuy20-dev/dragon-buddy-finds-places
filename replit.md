@@ -48,13 +48,15 @@ Preferred communication style: Simple, everyday language.
 - **Gemini AI**: Google's Gemini 2.5 Flash model for intelligent place search
 - **Real-time Chat**: Travel Buddy powered by Gemini AI for travel assistance
 - **Smart Recommendations**: AI-filtered hotels, restaurants, and landmarks
-- **Web Search**: Gemini uses web search capabilities to find current, accurate place data
+- **Web Search**: Gemini uses web search capabilities to find current, accurate place data with verified authenticity
+- **Data Integrity**: All place recommendations are verified through web search to ensure they exist and are currently operating
 
 ### Database Layer
 - **ORM**: Drizzle ORM with PostgreSQL dialect
-- **Connection**: Neon Database serverless connection
+- **Connection**: Supabase PostgreSQL database with automatic fallback to in-memory storage
 - **Schema**: Centralized in `shared/schema.ts` with Zod validation
 - **Migrations**: Automated schema changes in `migrations/` directory
+- **Storage**: Dual implementation (SupabaseStorage for production, MemStorage for development)
 
 ### Frontend Components
 - **Location Detection**: Browser geolocation API integration
@@ -87,10 +89,11 @@ Preferred communication style: Simple, everyday language.
 - **Icons**: Lucide React icon library
 
 ### Backend Dependencies
-- **Database**: @neondatabase/serverless for PostgreSQL
+- **Database**: Supabase with postgres client for PostgreSQL
 - **ORM**: drizzle-orm with drizzle-kit for migrations
 - **Session Store**: connect-pg-simple for PostgreSQL sessions
 - **Validation**: Zod for runtime type checking
+- **AI Integration**: @google/genai for Gemini AI with web search capabilities
 
 ### Development Tools
 - **Build**: esbuild for production builds
