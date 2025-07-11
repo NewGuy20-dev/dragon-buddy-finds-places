@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
-import { searchPlacesWithAI, chatWithTravelBuddy, getLocationInfo } from "./gemini";
+import { storage } from "./storage.js";
+import { searchPlacesWithAI, chatWithTravelBuddy, getLocationInfo } from "./gemini.js";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Places API routes

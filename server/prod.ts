@@ -89,8 +89,23 @@ async function initialize() {
   }
 }
 
-// Export for Vercel
-export default initialize().then(app => app).catch(err => {
-  console.error('Server initialization failed:', err);
-  process.exit(1);
-});
+// Initialize and export for Vercel
+let appInstance: express.Application | null = null;
+
+async function getApp() {
+  if (!appInstance) {
+    appInstance = await initialize();
+  }
+  return appInstance;
+}
+
+// Export for Vercel serverless functions
+export default async function handler(req: any, res: any) {
+  try {
+    const app = await getApp();
+    return app(req, res);
+  } catch (error) {
+    console.error('Handler error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+}
