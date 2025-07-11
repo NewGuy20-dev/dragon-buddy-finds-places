@@ -14,7 +14,9 @@
    - Set environment variables in Vercel dashboard:
      - `GOOGLE_API_KEY` (your Google Gemini API key)
      - `NODE_ENV=production`
-   - In Vercel project settings, set:
+   - Vercel will automatically detect the configuration from `vercel.json`
+   - If needed, manually set in Vercel project settings:
+     - **Framework Preset**: Other
      - **Build Command**: `npm run build`
      - **Output Directory**: `dist/public`
      - **Install Command**: `npm install`
@@ -25,12 +27,21 @@
    - Serve static files from `dist/public`
    - Handle routing
 
-## Critical Fix Applied
+## Critical Fixes Applied
+
+🔧 **404 Error Resolved**: 
+- Simplified Vercel configuration using modern `vercel.json` format
+- Set proper `outputDirectory` to `dist/public`
+- Streamlined API routing using Vercel's native approach
 
 🔧 **MIME Type Issue Resolved**: 
 - Removed conflicting `/public/index.html` file
 - Vercel now serves the correct built files from `/dist/public/`
 - Static assets (JS, CSS) are properly served with correct MIME types
+
+🔧 **API Structure Optimized**:
+- Simplified `/api/index.ts` to handle all routes in a single serverless function
+- Removed complex Express routing for better Vercel compatibility
 
 ## Fixed Issues
 
