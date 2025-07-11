@@ -1,10 +1,15 @@
 {
   "version": 2,
-  "functions": {
-    "api/index.ts": {
-      "runtime": "nodejs20.x"
+  "builds": [
+    {
+      "src": "api/index.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static"
     }
-  },
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
@@ -15,7 +20,8 @@
       "dest": "/public/favicon.svg"
     },
     {
-      "handle": "filesystem"
+      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
+      "dest": "/public/$1"
     },
     {
       "src": "/(.*)",

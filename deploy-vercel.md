@@ -26,6 +26,7 @@
 ✅ **Static Files**: Frontend served from `/public/` directory  
 ✅ **Favicon**: Added proper favicon.svg  
 ✅ **CORS**: Configured for cross-origin requests  
+✅ **Runtime Configuration**: Fixed Vercel build configuration with proper `@vercel/node` usage  
 
 ## File Structure
 
