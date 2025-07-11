@@ -19,7 +19,7 @@ export function DragonBuddy({ onLocationRequest, userLocation }: DragonBuddyProp
     {
       id: 1,
       type: 'dragon',
-      text: "Hi there! I'm Dragon Buddy 🐉 I'm here to help you discover amazing places around you! What would you like to find today?"
+      text: "Hi there! I'm Travel Buddy 🐉 I'm here to help you discover amazing places around you! What would you like to find today?"
     }
   ]);
   const [input, setInput] = useState('');
@@ -70,7 +70,7 @@ export function DragonBuddy({ onLocationRequest, userLocation }: DragonBuddyProp
       >
         <img 
           src={dragonBuddy} 
-          alt="Dragon Buddy" 
+          alt="Travel Buddy"
           className="w-8 h-8 animate-dragon-float"
         />
       </button>
@@ -84,11 +84,11 @@ export function DragonBuddy({ onLocationRequest, userLocation }: DragonBuddyProp
         <div className="flex items-center gap-3">
           <img 
             src={dragonBuddy} 
-            alt="Dragon Buddy" 
+            alt="Travel Buddy" 
             className="w-8 h-8 animate-dragon-pulse"
           />
           <div>
-            <h3 className="font-semibold text-foreground">Dragon Buddy</h3>
+            <h3 className="font-semibold text-foreground">Travel Buddy</h3>
             <p className="text-sm text-muted-foreground">Your AI guide</p>
           </div>
         </div>
@@ -128,7 +128,7 @@ export function DragonBuddy({ onLocationRequest, userLocation }: DragonBuddyProp
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Ask Dragon Buddy anything..."
+            placeholder="Ask Travel Buddy anything..."
             className="flex-1 px-3 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
           />
           <button

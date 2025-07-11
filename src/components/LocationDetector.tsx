@@ -67,7 +67,7 @@ export function LocationDetector({ onLocationChange, currentLocation }: Location
         </div>
       ) : (
         <p className="text-muted-foreground text-sm mb-4">
-          Let Dragon Buddy know where you are to get personalized recommendations!
+          Let Travel Buddy know where you are to get personalized recommendations!
         </p>
       )}
 

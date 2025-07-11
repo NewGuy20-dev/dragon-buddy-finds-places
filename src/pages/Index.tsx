@@ -26,11 +26,11 @@ const Index = () => {
             <div className="flex items-center gap-3">
               <img 
                 src={dragonBuddy} 
-                alt="Dragon Buddy" 
+                alt="Travel Buddy"
                 className="w-10 h-10 animate-dragon-float"
               />
               <div>
-                <h1 className="text-2xl font-bold text-gradient-dragon">Dragon Buddy</h1>
+                <h1 className="text-2xl font-bold text-gradient-dragon">Travel Buddy</h1>
                 <p className="text-sm text-muted-foreground">AI-Powered Location Discovery</p>
               </div>
             </div>
@@ -47,11 +47,11 @@ const Index = () => {
               <div className="mb-8">
                 <img 
                   src={dragonBuddy} 
-                  alt="Dragon Buddy" 
+                  alt="Travel Buddy" 
                   className="w-24 h-24 mx-auto animate-dragon-bounce mb-4"
                 />
                 <h2 className="text-3xl font-bold text-foreground mb-2">
-                  Welcome to Dragon Buddy! 🐉
+                  Welcome to Travel Buddy! 🐉
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Your AI-powered companion for discovering amazing hotels, restaurants, and landmarks wherever you are.
@@ -85,8 +85,8 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Dragon Buddy Chat */}
-      <DragonBuddy 
+      {/* Travel Buddy Chat */}
+      <DragonBuddy
         userLocation={userLocation}
         onLocationRequest={() => {
           // Could trigger location detection

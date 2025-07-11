@@ -35,7 +35,7 @@ export function PlaceCategories({ onCategorySelect, selectedCategory }: PlaceCat
       <div className="mb-6">
         <h2 className="text-xl font-semibold text-foreground mb-2">What are you looking for?</h2>
         <p className="text-muted-foreground text-sm">
-          Choose a category to get personalized recommendations from Dragon Buddy
+          Choose a category to get personalized recommendations from Travel Buddy
         </p>
       </div>
 

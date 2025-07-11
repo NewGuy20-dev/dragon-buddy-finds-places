@@ -148,7 +148,7 @@ export function PlacesList({ category, location }: PlacesListProps) {
           </div>
           <h3 className="font-semibold text-foreground mb-2">No places found</h3>
           <p className="text-muted-foreground text-sm">
-            Try adjusting your search or ask Dragon Buddy for help!
+            Try adjusting your search or ask Travel Buddy for help!
           </p>
         </div>
       )}
@@ -157,7 +157,7 @@ export function PlacesList({ category, location }: PlacesListProps) {
       <div className="mt-6 p-4 bg-dragon-primary-light rounded-lg border border-primary/20">
         <div className="flex items-center gap-2 mb-2">
           <Sparkles className="text-primary" size={18} />
-          <span className="font-medium text-foreground">Dragon Buddy's Tip</span>
+          <span className="font-medium text-foreground">Travel Buddy's Tip</span>
         </div>
         <p className="text-sm text-foreground/80">
           {category === 'hotels' && "Looking for something specific? Try asking me about 'pet-friendly hotels' or 'hotels with pools'!"}
