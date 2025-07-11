@@ -119,6 +119,12 @@ Preferred communication style: Simple, everyday language.
   2. `esbuild` for backend bundling
   3. `node dist/index.js` for server start
 
+### Vercel Deployment
+- **Entry Point**: `server/prod.ts` optimized for Vercel serverless functions
+- **Configuration**: `vercel.json` handles routing and static file serving
+- **Build**: Uses standard `npm run build` command
+- **Environment Variables**: GOOGLE_API_KEY required for Gemini AI functionality
+
 ### Configuration
 - **Database**: Environment variable `DATABASE_URL` required
 - **Build Output**: Frontend static files served by Express
