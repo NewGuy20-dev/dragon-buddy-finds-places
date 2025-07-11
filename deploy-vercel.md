@@ -68,6 +68,11 @@
 - Simplified `/api/index.ts` to handle all routes in a single serverless function
 - Removed complex Express routing for better Vercel compatibility
 
+🔧 **Node.js Version Fixed**:
+- Set runtime to `nodejs18.x` in `vercel.json`
+- Added `.nvmrc` file to specify Node.js 18
+- Resolved "invalid node.js" deployment errors
+
 ## Fixed Issues
 
 ✅ **Module Resolution**: Fixed ES module imports with `.js` extensions  
