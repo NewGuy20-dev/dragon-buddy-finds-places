@@ -1,15 +1,16 @@
 import { Star, MapPin, Clock, DollarSign } from 'lucide-react';
 
 interface Place {
-  id: string;
   name: string;
   category: string;
   rating: number;
   distance: string;
   price: string;
-  image: string;
   description: string;
   openNow: boolean;
+  address: string;
+  phone?: string;
+  website?: string;
 }
 
 interface PlaceCardProps {

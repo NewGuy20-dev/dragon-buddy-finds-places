@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { MessageCircle, X } from 'lucide-react';
+import { MessageCircle, X, Send } from 'lucide-react';
+import { useMutation } from '@tanstack/react-query';
 import travelBuddyKoala from '@/assets/travel-buddy-koala.png';
 
 interface DragonBuddyProps {
@@ -24,6 +25,42 @@ export function DragonBuddy({ onLocationRequest, userLocation }: DragonBuddyProp
   ]);
   const [input, setInput] = useState('');
 
+  const chatMutation = useMutation({
+    mutationFn: async (message: string) => {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message,
+          location: userLocation,
+          context: 'travel assistance'
+        }),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+      
+      return response.json();
+    },
+    onSuccess: (data) => {
+      setMessages(prev => [...prev, {
+        id: Date.now() + 1,
+        type: 'dragon' as const,
+        text: data.text
+      }]);
+    },
+    onError: () => {
+      setMessages(prev => [...prev, {
+        id: Date.now() + 1,
+        type: 'dragon' as const,
+        text: "Sorry, I'm having some technical difficulties. Please try again later! 🐉"
+      }]);
+    }
+  });
+
   const handleSendMessage = () => {
     if (!input.trim()) return;
 
@@ -34,25 +71,7 @@ export function DragonBuddy({ onLocationRequest, userLocation }: DragonBuddyProp
     };
 
     setMessages(prev => [...prev, userMessage]);
-
-    // Simulate AI response
-    setTimeout(() => {
-      const responses = [
-        "Let me help you find the perfect place! 🌟 What type of place are you looking for?",
-        "Great question! Based on your location, I can suggest some amazing options. 🗺️",
-        "I'd love to help! Are you looking for restaurants, hotels, or landmarks? 🏨🍽️🏛️",
-        "Exciting! Let me search for the best options near you. ✨"
-      ];
-      
-      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-      
-      setMessages(prev => [...prev, {
-        id: Date.now() + 1,
-        type: 'dragon' as const,
-        text: randomResponse
-      }]);
-    }, 1000);
-
+    chatMutation.mutate(input);
     setInput('');
   };
 
@@ -118,6 +137,19 @@ export function DragonBuddy({ onLocationRequest, userLocation }: DragonBuddyProp
             </div>
           </div>
         ))}
+        
+        {/* Loading indicator */}
+        {chatMutation.isPending && (
+          <div className="flex justify-start">
+            <div className="max-w-[80%] px-3 py-2 rounded-xl bg-accent text-accent-foreground">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-current rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-current rounded-full animate-pulse delay-100"></div>
+                <div className="w-2 h-2 bg-current rounded-full animate-pulse delay-200"></div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Input */}
@@ -129,13 +161,15 @@ export function DragonBuddy({ onLocationRequest, userLocation }: DragonBuddyProp
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Ask Travel Buddy anything..."
-            className="flex-1 px-3 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
+            disabled={chatMutation.isPending}
+            className="flex-1 px-3 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-50"
           />
           <button
             onClick={handleSendMessage}
-            className="dragon-button-primary px-4 py-2"
+            disabled={chatMutation.isPending || !input.trim()}
+            className="dragon-button-primary px-4 py-2 disabled:opacity-50"
           >
-            <MessageCircle size={18} />
+            <Send size={18} />
           </button>
         </div>
       </div>
