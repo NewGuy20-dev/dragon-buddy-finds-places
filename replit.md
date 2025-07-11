@@ -46,7 +46,7 @@ Preferred communication style: Simple, everyday language.
 
 ### AI Integration
 - **Gemini AI**: Google's Gemini 2.5 Flash model for intelligent place search
-- **Real-time Chat**: Dragon Buddy powered by Gemini AI for travel assistance
+- **Real-time Chat**: Travel Buddy powered by Gemini AI for travel assistance
 - **Smart Recommendations**: AI-filtered hotels, restaurants, and landmarks
 - **Web Search**: Gemini uses web search capabilities to find current, accurate place data
 
@@ -59,7 +59,7 @@ Preferred communication style: Simple, everyday language.
 ### Frontend Components
 - **Location Detection**: Browser geolocation API integration
 - **Place Categories**: Hotel, restaurant, and landmark browsing
-- **AI Chat Interface**: Interactive travel assistant (Dragon Buddy)
+- **AI Chat Interface**: Interactive travel assistant (Travel Buddy)
 - **Google Maps Integration**: Click-to-open place cards in Google Maps
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 
@@ -74,7 +74,7 @@ Preferred communication style: Simple, everyday language.
 1. **User Location**: Browser geolocation → LocationDetector component
 2. **Category Selection**: User selects place type → PlaceCategories component
 3. **Place Discovery**: Category + location → PlacesList component (mock data)
-4. **AI Interaction**: User queries → DragonBuddy chat interface
+4. **AI Interaction**: User queries → TravelBuddy chat interface
 5. **Data Storage**: User data → Storage abstraction → Database
 
 ## External Dependencies

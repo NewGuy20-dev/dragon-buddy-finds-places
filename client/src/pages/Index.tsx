@@ -27,10 +27,10 @@ const Index = () => {
               <img 
                 src={travelBuddyKoala} 
                 alt="Travel Buddy"
-                className="w-10 h-10 animate-dragon-float"
+                className="w-10 h-10 animate-buddy-float"
               />
               <div>
-                <h1 className="text-2xl font-bold text-gradient-dragon">Travel Buddy</h1>
+                <h1 className="text-2xl font-bold text-gradient-buddy">Travel Buddy</h1>
                 <p className="text-sm text-muted-foreground">AI-Powered Location Discovery</p>
               </div>
             </div>
@@ -48,7 +48,7 @@ const Index = () => {
                 <img 
                   src={travelBuddyKoala} 
                   alt="Travel Buddy" 
-                  className="w-24 h-24 mx-auto animate-dragon-bounce mb-4"
+                  className="w-24 h-24 mx-auto animate-buddy-bounce mb-4"
                 />
                 <h2 className="text-3xl font-bold text-foreground mb-2">
                   Welcome to Travel Buddy! ✈️🐨

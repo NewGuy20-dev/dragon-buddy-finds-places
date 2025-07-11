@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { searchPlacesWithAI, chatWithDragonBuddy, getLocationInfo } from "./gemini";
+import { searchPlacesWithAI, chatWithTravelBuddy, getLocationInfo } from "./gemini";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Places API routes
@@ -30,7 +30,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Dragon Buddy chat API
+  // Travel Buddy chat API
   app.post("/api/chat", async (req, res) => {
     try {
       const { message, location, context } = req.body;
@@ -41,7 +41,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
-      const response = await chatWithDragonBuddy(
+      const response = await chatWithTravelBuddy(
         message,
         location,
         context

@@ -56,7 +56,7 @@ export function DragonBuddy({ onLocationRequest, userLocation }: DragonBuddyProp
       setMessages(prev => [...prev, {
         id: Date.now() + 1,
         type: 'dragon' as const,
-        text: "Sorry, I'm having some technical difficulties. Please try again later! 🐉"
+        text: "Sorry, I'm having some technical difficulties. Please try again later! 🐨"
       }]);
     }
   });
@@ -90,7 +90,7 @@ export function DragonBuddy({ onLocationRequest, userLocation }: DragonBuddyProp
         <img 
           src={travelBuddyKoala} 
           alt="Travel Buddy"
-          className="w-8 h-8 animate-dragon-float"
+          className="w-8 h-8 animate-buddy-float"
         />
       </button>
     );
@@ -104,7 +104,7 @@ export function DragonBuddy({ onLocationRequest, userLocation }: DragonBuddyProp
           <img 
             src={travelBuddyKoala}
             alt="Travel Buddy" 
-            className="w-8 h-8 animate-dragon-pulse"
+            className="w-8 h-8 animate-buddy-pulse"
           />
           <div>
             <h3 className="font-semibold text-foreground">Travel Buddy</h3>

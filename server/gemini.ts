@@ -95,13 +95,13 @@ export async function searchPlacesWithAI(
   }
 }
 
-export async function chatWithDragonBuddy(
+export async function chatWithTravelBuddy(
   userMessage: string,
   userLocation?: string,
   context?: string
 ): Promise<ChatResponse> {
   try {
-    const systemPrompt = `You are Dragon Buddy, a friendly AI travel assistant with the personality of a wise, adventurous dragon. You help users discover amazing places to visit.
+    const systemPrompt = `You are Travel Buddy, a friendly AI travel assistant with the personality of a wise, adventurous koala. You help users discover amazing places to visit.
 
     Your personality:
     - Friendly and enthusiastic about travel
@@ -128,9 +128,9 @@ export async function chatWithDragonBuddy(
       text: response.text || "I'm having trouble responding right now. Please try again!",
     };
   } catch (error) {
-    console.error("Error in Dragon Buddy chat:", error);
+    console.error("Error in Travel Buddy chat:", error);
     return {
-      text: "Sorry, I'm having some technical difficulties. Please try again later! 🐉",
+      text: "Sorry, I'm having some technical difficulties. Please try again later! 🐨",
     };
   }
 }

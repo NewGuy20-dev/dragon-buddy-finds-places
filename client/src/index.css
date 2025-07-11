@@ -4,11 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Dragon Buddy Design System - Location Discovery App */
+/* Travel Buddy Design System - Location Discovery App */
 
 @layer base {
   :root {
-    /* Dragon Buddy Brand Colors */
+    /* Travel Buddy Brand Colors */
     --dragon-primary: 158 64% 52%; /* #10B981 - Emerald 500 */
     --dragon-primary-dark: 158 64% 42%; /* #059669 - Emerald 600 */
     --dragon-primary-light: 152 81% 96%; /* #D1FAE5 - Emerald 100 */
@@ -51,7 +51,7 @@
     
     --radius: 0.75rem;
     
-    /* Dragon Buddy specific design tokens */
+    /* Travel Buddy specific design tokens */
     --dragon-shadow: 0 10px 30px -10px hsl(var(--dragon-primary) / 0.2);
     --dragon-shadow-pink: 0 10px 30px -10px hsl(var(--dragon-secondary) / 0.2);
     --dragon-glow: 0 0 40px hsl(var(--dragon-primary) / 0.3);
@@ -130,7 +130,7 @@
   }
 }
 
-/* Dragon Buddy Component Styles */
+/* Travel Buddy Component Styles */
 @layer components {
   .dragon-card {
     @apply bg-card rounded-xl shadow-lg border border-transparent;
@@ -180,7 +180,7 @@
 }
 
 @layer utilities {
-  .text-gradient-dragon {
+  .text-gradient-buddy {
     background: var(--gradient-dragon);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -188,7 +188,7 @@
   }
 }
 
-/* Dragon Buddy Animations */
+/* Travel Buddy Animations */
 @keyframes dragonFloat {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }

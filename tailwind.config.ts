@@ -86,17 +86,17 @@ export default {
             height: "0",
           },
         },
-        "dragon-float": {
+        "buddy-float": {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
         },
-        "dragon-bounce": {
+        "buddy-bounce": {
           "0%, 20%, 53%, 80%, 100%": { transform: "translateY(0)" },
           "40%, 43%": { transform: "translateY(-10px)" },
           "70%": { transform: "translateY(-5px)" },
           "90%": { transform: "translateY(-2px)" },
         },
-        "dragon-pulse": {
+        "buddy-pulse": {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.7" },
         },
@@ -104,9 +104,9 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "dragon-float": "dragon-float 3s ease-in-out infinite",
-        "dragon-bounce": "dragon-bounce 1s ease-in-out infinite",
-        "dragon-pulse": "dragon-pulse 2s ease-in-out infinite",
+        "buddy-float": "buddy-float 3s ease-in-out infinite",
+        "buddy-bounce": "buddy-bounce 1s ease-in-out infinite",
+        "buddy-pulse": "buddy-pulse 2s ease-in-out infinite",
       },
     },
   },
