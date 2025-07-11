@@ -2,6 +2,36 @@
 
 ## Quick Setup
 
+### Option 1: Deploy with Vercel CLI (Recommended)
+
+1. **Install Vercel CLI** (already installed):
+   ```bash
+   npm list vercel  # Verify installation
+   ```
+
+2. **Build and deploy**:
+   ```bash
+   # Build the project
+   npm run build
+   
+   # Login to Vercel (first time only)
+   npx vercel login
+   
+   # Deploy to Vercel
+   npx vercel --prod
+   ```
+
+3. **Set environment variables**:
+   ```bash
+   npx vercel env add GOOGLE_API_KEY
+   # Enter your Google Gemini API key when prompted
+   
+   npx vercel env add NODE_ENV
+   # Enter: production
+   ```
+
+### Option 2: Deploy via GitHub
+
 1. **Build the project locally** (optional, for testing):
    ```bash
    npm run build
@@ -15,11 +45,6 @@
      - `GOOGLE_API_KEY` (your Google Gemini API key)
      - `NODE_ENV=production`
    - Vercel will automatically detect the configuration from `vercel.json`
-   - If needed, manually set in Vercel project settings:
-     - **Framework Preset**: Other
-     - **Build Command**: `npm run build`
-     - **Output Directory**: `dist/public`
-     - **Install Command**: `npm install`
 
 3. **Vercel will automatically**:
    - Build the frontend (React/Vite)
