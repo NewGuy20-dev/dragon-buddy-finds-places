@@ -3,7 +3,7 @@ import { LocationDetector } from '@/components/LocationDetector';
 import { PlaceCategories } from '@/components/PlaceCategories';
 import { PlacesList } from '@/components/PlacesList';
 import { DragonBuddy } from '@/components/DragonBuddy';
-import dragonBuddy from '@/assets/dragon-buddy.png';
+import travelBuddyKoala from '@/assets/travel-buddy-koala.png';
 
 const Index = () => {
   const [userLocation, setUserLocation] = useState('');
@@ -25,7 +25,7 @@ const Index = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
               <img 
-                src={dragonBuddy} 
+                src={travelBuddyKoala} 
                 alt="Travel Buddy"
                 className="w-10 h-10 animate-dragon-float"
               />
@@ -46,12 +46,12 @@ const Index = () => {
             <div className="text-center py-12">
               <div className="mb-8">
                 <img 
-                  src={dragonBuddy} 
+                  src={travelBuddyKoala} 
                   alt="Travel Buddy" 
                   className="w-24 h-24 mx-auto animate-dragon-bounce mb-4"
                 />
                 <h2 className="text-3xl font-bold text-foreground mb-2">
-                  Welcome to Travel Buddy! 🐉
+                  Welcome to Travel Buddy! ✈️🐨
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Your AI-powered companion for discovering amazing hotels, restaurants, and landmarks wherever you are.

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { MessageCircle, X } from 'lucide-react';
-import dragonBuddy from '@/assets/dragon-buddy.png';
+import travelBuddyKoala from '@/assets/travel-buddy-koala.png';
 
 interface DragonBuddyProps {
   onLocationRequest?: () => void;
@@ -19,7 +19,7 @@ export function DragonBuddy({ onLocationRequest, userLocation }: DragonBuddyProp
     {
       id: 1,
       type: 'dragon',
-      text: "Hi there! I'm Travel Buddy 🐉 I'm here to help you discover amazing places around you! What would you like to find today?"
+      text: "Hi there! I'm Travel Buddy ✈️🐨 I'm here to help you discover amazing places around you! What would you like to find today?"
     }
   ]);
   const [input, setInput] = useState('');
@@ -69,7 +69,7 @@ export function DragonBuddy({ onLocationRequest, userLocation }: DragonBuddyProp
         className="fixed bottom-6 right-6 z-50 dragon-button-primary rounded-full p-4 shadow-xl"
       >
         <img 
-          src={dragonBuddy} 
+          src={travelBuddyKoala} 
           alt="Travel Buddy"
           className="w-8 h-8 animate-dragon-float"
         />
@@ -83,7 +83,7 @@ export function DragonBuddy({ onLocationRequest, userLocation }: DragonBuddyProp
       <div className="flex items-center justify-between p-4 border-b">
         <div className="flex items-center gap-3">
           <img 
-            src={dragonBuddy} 
+            src={travelBuddyKoala}
             alt="Travel Buddy" 
             className="w-8 h-8 animate-dragon-pulse"
           />
