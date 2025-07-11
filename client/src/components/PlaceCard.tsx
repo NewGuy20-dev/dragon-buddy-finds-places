@@ -11,6 +11,7 @@ interface Place {
   address: string;
   phone?: string;
   website?: string;
+  imageUrl?: string;
 }
 
 interface PlaceCardProps {
@@ -34,17 +35,53 @@ export function PlaceCard({ place, onClick }: PlaceCardProps) {
       onClick={handleCardClick}
     >
       {/* Image */}
-      <div className="relative h-48 bg-gradient-to-br from-dragon-primary-light to-dragon-secondary-light">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-2 mx-auto">
-              {place.category === 'hotels' && <span className="text-2xl">🏨</span>}
-              {place.category === 'restaurants' && <span className="text-2xl">🍽️</span>}
-              {place.category === 'landmarks' && <span className="text-2xl">🏛️</span>}
+      <div className="relative h-48 bg-gradient-to-br from-dragon-primary-light to-dragon-secondary-light overflow-hidden">
+        {place.imageUrl ? (
+          <img 
+            src={place.imageUrl} 
+            alt={place.name}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              // Fallback to category icon if image fails to load
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+            }}
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-2 mx-auto">
+                {place.category === 'hotels' && <span className="text-2xl">🏨</span>}
+                {place.category === 'restaurants' && <span className="text-2xl">🍽️</span>}
+                {place.category === 'landmarks' && <span className="text-2xl">🏛️</span>}
+              </div>
+              <p className="text-xs text-muted-foreground">Photo coming soon</p>
             </div>
-            <p className="text-xs text-muted-foreground">Photo coming soon</p>
           </div>
-        </div>
+        )}
+        
+        {/* Fallback icon overlay when image fails */}
+        {place.imageUrl && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-dragon-primary-light to-dragon-secondary-light opacity-0 transition-opacity duration-300" 
+               style={{ display: 'none' }} 
+               onLoad={() => {
+                 // This will show if the image fails to load
+                 const element = document.querySelector(`[data-fallback="${place.name}"]`) as HTMLElement;
+                 if (element) {
+                   element.style.display = 'flex';
+                   element.style.opacity = '1';
+                 }
+               }}>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-2 mx-auto">
+                {place.category === 'hotels' && <span className="text-2xl">🏨</span>}
+                {place.category === 'restaurants' && <span className="text-2xl">🍽️</span>}
+                {place.category === 'landmarks' && <span className="text-2xl">🏛️</span>}
+              </div>
+              <p className="text-xs text-muted-foreground">Photo unavailable</p>
+            </div>
+          </div>
+        )}
         
         {/* Status badge */}
         <div className="absolute top-3 right-3">

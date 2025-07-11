@@ -13,6 +13,7 @@ export interface PlaceRecommendation {
   address: string;
   phone?: string;
   website?: string;
+  imageUrl?: string;
 }
 
 export interface ChatResponse {
@@ -39,8 +40,9 @@ export async function searchPlacesWithAI(
     - Current operating hours and status
     - Accurate pricing information
     - Authentic descriptions from their websites or reviews
+    - High-quality images of each place (exterior, interior, or food photos)
     
-    IMPORTANT: Only include places that actually exist and are currently operating. Use current web search results to verify all information.
+    IMPORTANT: Only include places that actually exist and are currently operating. Use current web search results to verify all information and find actual photos.
     
     Format the response as a JSON array of objects with these exact fields:
     {
@@ -53,7 +55,8 @@ export async function searchPlacesWithAI(
       "openNow": boolean,
       "address": string,
       "phone": string,
-      "website": string
+      "website": string,
+      "imageUrl": string
     }
     
     Only return valid, real places with accurate information. Use current data and prioritize highly-rated, popular establishments.`;
@@ -76,9 +79,10 @@ export async function searchPlacesWithAI(
               openNow: { type: "boolean" },
               address: { type: "string" },
               phone: { type: "string" },
-              website: { type: "string" }
+              website: { type: "string" },
+              imageUrl: { type: "string" }
             },
-            required: ["name", "category", "rating", "distance", "price", "description", "openNow", "address"]
+            required: ["name", "category", "rating", "distance", "price", "description", "openNow", "address", "imageUrl"]
           }
         }
       },

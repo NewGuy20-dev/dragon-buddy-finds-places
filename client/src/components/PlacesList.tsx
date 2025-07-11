@@ -14,6 +14,7 @@ interface Place {
   address: string;
   phone?: string;
   website?: string;
+  imageUrl?: string;
 }
 
 interface PlacesListProps {

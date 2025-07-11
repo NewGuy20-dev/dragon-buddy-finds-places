@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { MessageCircle, X, Send } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
-import travelBuddyKoala from '@/assets/travel-buddy-koala.png';
+import travelBuddyKoala from '@/assets/travel-buddy-koala-transparent.svg';
 
 interface DragonBuddyProps {
   onLocationRequest?: () => void;
