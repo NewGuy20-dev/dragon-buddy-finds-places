@@ -3,7 +3,7 @@ import { LocationDetector } from '@/components/LocationDetector';
 import { PlaceCategories } from '@/components/PlaceCategories';
 import { PlacesList } from '@/components/PlacesList';
 import { DragonBuddy } from '@/components/DragonBuddy';
-import travelBuddyKoala from '@/assets/travel-buddy-koala-transparent.svg';
+import travelBuddyKoala from '@/assets/travel-buddy-icon.png';
 
 const Index = () => {
   const [userLocation, setUserLocation] = useState('');
