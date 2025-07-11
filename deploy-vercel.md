@@ -5,6 +5,8 @@
 1. **Build the project locally** (optional, for testing):
    ```bash
    npm run build
+   # Or use the build script
+   ./build-vercel.sh
    ```
 
 2. **Deploy to Vercel**:
@@ -12,12 +14,23 @@
    - Set environment variables in Vercel dashboard:
      - `GOOGLE_API_KEY` (your Google Gemini API key)
      - `NODE_ENV=production`
+   - In Vercel project settings, set:
+     - **Build Command**: `npm run build`
+     - **Output Directory**: `dist/public`
+     - **Install Command**: `npm install`
 
 3. **Vercel will automatically**:
    - Build the frontend (React/Vite)
    - Deploy the API serverless functions
-   - Serve static files
+   - Serve static files from `dist/public`
    - Handle routing
+
+## Critical Fix Applied
+
+🔧 **MIME Type Issue Resolved**: 
+- Removed conflicting `/public/index.html` file
+- Vercel now serves the correct built files from `/dist/public/`
+- Static assets (JS, CSS) are properly served with correct MIME types
 
 ## Fixed Issues
 
